@@ -6,6 +6,7 @@
 // @author       Lewis Mitchell
 // @match        */whats-running-where
 // @match        */whats-running-where?profile=ggw
+// @match        */whats-running-where?profile=auth
 // @grant        none
 // ==/UserScript==
 
@@ -97,4 +98,5 @@
         }
 
     }
+    setTimeout(function(){ location.reload(); }, 10000);
 })();
