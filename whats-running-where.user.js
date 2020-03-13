@@ -26,6 +26,7 @@
     document.querySelector("#running_apps_filter > label").style.color = "WHITE";
     document.querySelector("span > .paginate_button").style.background = "GRAY";
     document.querySelector(".page-header").style.cssText = "border: none;";
+    document.querySelector(".container").classList.remove("container");
     for( r=1; r<rowcount; r++) {
         cells = rows[r].cells;
         var app = cells[0];
