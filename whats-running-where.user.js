@@ -37,6 +37,7 @@
             spanOverPagination[GM_getValue('pagination_page', -1)].classList.add = "current";
         }
     }
+    rows[0].cells[1].remove();
     for( r=1; r<rowcount; r++) {
         cells = rows[r].cells;
         var app = cells[0];
@@ -47,6 +48,7 @@
         var devCell = cells[2];
         var prodCell = cells[6];
         var integrationCell = cells[1];
+        integrationCell.remove();
         qaCell.style.cssText = "border-top-color: GRAY;";
         eteCell.style.cssText = "border-top-color: GRAY;";
         prodCell.style.cssText = "border-top-color: GRAY;";
