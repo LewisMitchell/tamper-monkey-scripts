@@ -95,13 +95,6 @@
             prodCell.style.background = "GREEN";
             prodCell.style.color = "WHITE";
         }
-        if(stagingCell.innerText != qaCell.innerText && !appName.includes("stub")) {
-            stagingCell.style.background = "RED";
-            stagingCell.style.color = "WHITE";
-        } else {
-            stagingCell.style.background = "GREEN";
-            stagingCell.style.color = "WHITE";
-        }
         if(stagingCell.innerText != eteCell.innerText && !appName.includes("stub") && !eteCell.innerText == "") {
             stagingCell.style.background = "GREEN";
             stagingCell.style.color = "WHITE";
@@ -112,6 +105,13 @@
             stagingCell.style.color = "WHITE";
             eteCell.style.background = "GREEN";
             eteCell.style.color = "WHITE";
+        }
+        if(stagingCell.innerText != qaCell.innerText && !appName.includes("stub")) {
+            stagingCell.style.background = "RED";
+            stagingCell.style.color = "WHITE";
+        } else {
+            stagingCell.style.background = "GREEN";
+            stagingCell.style.color = "WHITE";
         }
         if(prodCell.innerText == "") {
             eteCell.style.background = "GREEN";
