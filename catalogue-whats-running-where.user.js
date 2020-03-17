@@ -17,7 +17,7 @@
     for(var nameIndex = 0; nameIndex < appNames.length; nameIndex++) {
         appNames[nameIndex].style.cssText = "color: WHITE;";
     }
-
+    rows[0].cells[2].remove();
     for( r=1; r<rowcount; r++) {
         cells = rows[r].cells;
         var app = cells[0];
@@ -28,6 +28,7 @@
         var devCell = cells[1];
         var prodCell = cells[6];
         var integrationCell = cells[2];
+        integrationCell.remove();
         qaCell.style.cssText = "border-top-color: GRAY;";
         eteCell.style.cssText = "border-top-color: GRAY;";
         prodCell.style.cssText = "border-top-color: GRAY;";
@@ -36,9 +37,9 @@
         devCell.style.cssText = "border-top-color: GRAY;";
         app.style.cssText = "border-top-color: GRAY;";
         app.style.background = "#27AFDB";
-        if(devCell.innerText != qaCell.innerText && !appName.includes("stub")) {
-            devCell.style.background = "#FFE95C";
-            devCell.style.color = "BLACK";
+        devCell.style.background = "GREEN";
+        devCell.style.color = "WHITE";
+        if(devCell.innerText != qaCell.innerText && !appName.includes("stub") && !devCell.innerText == "") {
             qaCell.style.background = "RED";
             qaCell.style.color = "WHITE";
         } else {
@@ -47,9 +48,7 @@
             devCell.style.background = "GREEN";
             devCell.style.color = "WHITE";
         }
-        if(stagingCell.innerText != eteCell.innerText && !appName.includes("stub") && !eteCell.innerText != "") {
-            stagingCell.style.background = "#FFE95C";
-            stagingCell.style.color = "BLACK";
+        if(stagingCell.innerText != eteCell.innerText && !appName.includes("stub") && !eteCell.innerText == "") {
             eteCell.style.background = "RED";
             eteCell.style.color = "WHITE";
         } else {
@@ -58,20 +57,9 @@
             eteCell.style.background = "GREEN";
             eteCell.style.color = "WHITE";
         }
-        if(integrationCell.innerText != devCell.innerText && !appName.includes("stub") && !integrationCell.innerText != "") {
-            devCell.style.background = "#FFE95C";
-            devCell.style.color = "BLACK";
-            integrationCell.style.background = "RED";
-            integrationCell.style.color = "WHITE";
-        } else {
-            integrationCell.style.background = "GREEN";
-            integrationCell.style.color = "WHITE";
-            devCell.style.background = "GREEN";
-            devCell.style.color = "WHITE";
-        }
         if(stagingCell.innerText != prodCell.innerText && !appName.includes("stub")) {
-            stagingCell.style.background = "#FFE95C";
-            stagingCell.style.color = "BLACK";
+            stagingCell.style.background = "GREEN";
+            stagingCell.style.color = "WHITE";
             prodCell.style.background = "RED";
             prodCell.style.color = "WHITE";
         } else {
@@ -80,23 +68,31 @@
             prodCell.style.background = "GREEN";
             prodCell.style.color = "WHITE";
         }
+        if(stagingCell.innerText != eteCell.innerText && !appName.includes("stub") && !eteCell.innerText == "") {
+            stagingCell.style.background = "GREEN";
+            stagingCell.style.color = "WHITE";
+            eteCell.style.background = "RED";
+            eteCell.style.color = "WHITE";
+        } else {
+            stagingCell.style.background = "GREEN";
+            stagingCell.style.color = "WHITE";
+            eteCell.style.background = "GREEN";
+            eteCell.style.color = "WHITE";
+        }
+        if(stagingCell.innerText != qaCell.innerText && !appName.includes("stub")) {
+            stagingCell.style.background = "RED";
+            stagingCell.style.color = "WHITE";
+        } else {
+            stagingCell.style.background = "GREEN";
+            stagingCell.style.color = "WHITE";
+        }
         if(prodCell.innerText == "") {
             eteCell.style.background = "GREEN";
             eteCell.style.color = "WHITE";
             prodCell.style.background = "GREEN";
             prodCell.style.color = "WHITE";
         }
-        if(stagingCell.innerText != qaCell.innerText && !appName.includes("stub")) {
-            qaCell.style.background = "#FFE95C";
-            qaCell.style.color = "BLACK";
-            stagingCell.style.background = "RED";
-            stagingCell.style.color = "WHITE";
-        } else {
-            qaCell.style.background = "GREEN";
-            qaCell.style.color = "WHITE";
-            devCell.style.background = "GREEN";
-            devCell.style.color = "WHITE";
-        }
-
     }
+
+   setTimeout(function(){ location.reload(); }, 10000);
 })();
