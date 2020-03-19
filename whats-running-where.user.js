@@ -4,11 +4,9 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       Lewis Mitchell
-// @match        */whats-running-where
-// @match        */whats-running-where?profile=ggw
-// @match        */whats-running-where?profile=auth
-// @grant       GM_getValue
-// @grant       GM_setValue
+// @include      https://releases.*
+// @grant        GM_getValue
+// @grant        GM_setValue
 // ==/UserScript==
 
 (function() {
@@ -57,6 +55,8 @@
         devCell.style.cssText = "border-top-color: GRAY;";
         app.style.cssText = "border-top-color: GRAY;";
         app.style.background = "#27AFDB";
+        devCell.style.background = "GREEN";
+        devCell.style.color = "WHITE";
         if(devCell.innerText != qaCell.innerText && !appName.includes("stub") && !devCell.innerText == "") {
             qaCell.style.background = "RED";
             qaCell.style.color = "WHITE";
@@ -74,17 +74,6 @@
             stagingCell.style.color = "WHITE";
             eteCell.style.background = "GREEN";
             eteCell.style.color = "WHITE";
-        }
-        if(integrationCell.innerText != devCell.innerText && !appName.includes("stub") && !integrationCell.innerText == "") {
-            devCell.style.background = "GREEN";
-            devCell.style.color = "WHITE";
-            integrationCell.style.background = "RED";
-            integrationCell.style.color = "WHITE";
-        } else {
-            integrationCell.style.background = "GREEN";
-            integrationCell.style.color = "WHITE";
-            devCell.style.background = "GREEN";
-            devCell.style.color = "WHITE";
         }
         if(stagingCell.innerText != prodCell.innerText && !appName.includes("stub")) {
             stagingCell.style.background = "GREEN";
